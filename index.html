@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App-Lchandi</title>
-    <!-- Hier wird die separate CSS-Datei verknüpft -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,6 +17,11 @@
             </li>
             <li class="menu-item">
                 <a href="#" class="menu-link" onclick="switchTab(event, 'apps')">Apps</a>
+            </li>
+
+            <!-- NEU: Datenschutzerklärung -->
+            <li class="menu-item">
+                <a href="#" class="menu-link" onclick="switchTab(event, 'datenschutz')">Datenschutzerklärung</a>
             </li>
         </ul>
     </nav>
@@ -38,7 +42,6 @@
             <p>Wählen Sie eine App aus, um Details und Download-Links anzuzeigen:</p>
             
             <div class="grid-container">
-                <!-- Oily App Kachel -->
                 <div class="app-card" onclick="openAppDetails()">
                     <div class="app-icon">O</div>
                     <div class="app-title">Oily App</div>
@@ -46,9 +49,15 @@
             </div>
         </section>
 
+        <!-- NEU: Datenschutzerklärung Sektion -->
+        <section id="datenschutz" class="section">
+            <h2>Datenschutzerklärung</h2>
+            <p>Hier steht deine Datenschutzerklärung. Du kannst diesen Bereich frei mit Text, Listen oder Links gestalten.</p>
+        </section>
+
     </main>
 
-    <!-- App Detail Modal (Infos zu Oily) -->
+    <!-- App Detail Modal -->
     <div id="appModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeAppDetails()">&times;</span>
@@ -57,23 +66,19 @@
             <p>Behalten Sie den vollen Überblick über Ihre Auto-Wartungseinträge. Protokollieren Sie Ölwechsel, Filtertausch, Reparaturen und anstehende TÜV-Termine unkompliziert direkt auf Ihrem Android-Smartphone.</p>
             
             <div class="badge-container">
-                <!-- Ersetzen Sie '#' mit den echten Store-Links sobald vorhanden -->
                 <a href="#" class="store-badge play">Google Play Store</a>
                 <a href="#" class="store-badge">App Store</a>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript für die Interaktivität -->
+    <!-- JavaScript -->
     <script>
         function switchTab(event, tabId) {
             event.preventDefault();
-            // Alle Sektionen verstecken
             document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-            // Alle Menü-Links deaktivieren
             document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('active'));
             
-            // Gewählte Sektion und Link aktivieren
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
